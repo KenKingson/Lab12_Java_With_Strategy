@@ -2,18 +2,16 @@ package by.bntu.fitr.povt.coffeebaby.controller;
 
 
 import by.bntu.fitr.povt.coffeebaby.model.*;
-import by.bntu.fitr.povt.coffeebaby.model.engines.ArrayQueue;
-import by.bntu.fitr.povt.coffeebaby.model.engines.ArrayStack;
-import by.bntu.fitr.povt.coffeebaby.model.engines.ListQueue;
-import by.bntu.fitr.povt.coffeebaby.model.engines.ListStack;
-import by.bntu.fitr.povt.coffeebaby.view.Inputer;
-import by.bntu.fitr.povt.coffeebaby.view.View;
-import by.bntu.fitr.povt.coffeebaby.model.StonesCalc;
+import by.bntu.fitr.povt.coffeebaby.model.engines.*;
 
-import java.lang.reflect.Array;
+import by.bntu.fitr.povt.coffeebaby.model.sorting.*;
+import by.bntu.fitr.povt.coffeebaby.view.*;
+
+
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedList;
+
 
 public class Controller {
     public static void main(String[] args) {
@@ -22,6 +20,7 @@ public class Controller {
         ArrayList container = new ArrayList();
         View.output("Please, input number of stones in your necklace: ");
         countOfStones = Inputer.inputInt();
+        SortClient sortClient = new SortClient();
         Necklace necklace = new Necklace(new ArrayList());
         Mine mine = Mine.getMine();
         mine.extractionStone();
@@ -80,7 +79,24 @@ public class Controller {
                     View.output(necklace+"");
                 }
                 break;
-
+                case 8:{
+                    sortClient.setTypeOfSort(new BubbleSort());
+                   sortClient.executeSort(necklace.getNecklace(),1);
+                    View.output(necklace+"");
+                }
+                break;
+                case 9:{
+                    sortClient.setTypeOfSort(new BubbleSort());
+                    sortClient.executeSort(necklace.getNecklace(),2);
+                    View.output(necklace+"");
+                }
+                break;
+                /*case 9:{
+                    sortClient.setTypeOfSort(new QuickSort());
+                    sortClient.executeSort(necklace.getNecklace());
+                    View.output(necklace+"");
+                }
+                break;*/
                 default:
                     View.output("Error: Incorrect choice.");
             }

@@ -1,9 +1,10 @@
 package by.bntu.fitr.povt.coffeebaby.model;
 
 import java.lang.reflect.Array;
+import java.util.AbstractList;
 import java.util.ArrayList;
 
-public class FindByWeight {
+public class FindByWeight{
     private ArrayList container;
     public static ArrayList lookUpTo(Necklace necklace, int value,int countOfStones){
         ArrayList container = new ArrayList();

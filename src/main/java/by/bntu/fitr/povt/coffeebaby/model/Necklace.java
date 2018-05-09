@@ -1,14 +1,11 @@
 package by.bntu.fitr.povt.coffeebaby.model;
 
 
-import by.bntu.fitr.povt.coffeebaby.model.engines.List;
 
-import java.util.AbstractList;
-import java.util.Collection;
+import java.util.ArrayList;
 
 
-
-public class Necklace<T extends AbstractList> {
+public class Necklace<T extends ArrayList> {
     private T container;
 
     public Necklace(T containers) {
@@ -20,13 +17,14 @@ public class Necklace<T extends AbstractList> {
         return container;
     }
 
-    public Object getStone(int index){
+    public Object getStone(int index) {
         return container.get(index);
     }
 
-    public void delStone(int index){
+    public void delStone(int index) {
         container.remove(index);
     }
+
     public void addStone(Stone stone) {
         container.add(stone);
     }
